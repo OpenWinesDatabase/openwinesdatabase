@@ -1,0 +1,8 @@
+{
+  "name": "import-wines",
+  "version": "1.0.0",
+  "dependencies": {
+    "csv-parser": "^1.11.0",
+    "elasticsearch": "^12.1.3"
+  }
+}

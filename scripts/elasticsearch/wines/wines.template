@@ -1,0 +1,44 @@
+PUT _template/wines
+{
+   "template": "wine*",
+   "settings": {
+       "analysis": {
+           "analyzer": {
+               "standard_and_elision_analyzer": {
+                   "tokenizer": "standard",
+                   "filter": ["standard", "lowercase", "asciifolding", "elision"]
+               }
+           },
+           "filter": {
+               "elision": {
+                   "type": "elision",
+                   "articles": ["l", "m", "t", "qu", "n", "s", "j", "d"]
+               }
+
+           }
+       }
+   },
+   "mappings": {
+       "_default_": {
+           "_all": {
+               "enabled": true,
+               "norms": false
+           },
+           "dynamic_templates": [{
+               "string_fields": {
+                   "match": "*",
+                   "match_mapping_type": "string",
+                   "mapping": {
+                       "type": "text",
+                       "analyzer": "standard_and_elision_analyzer",
+                       "fields": {
+                           "keyword": {
+                               "type": "keyword"
+                           }
+                       }
+                   }
+               }
+           }]
+       }
+   }
+}
