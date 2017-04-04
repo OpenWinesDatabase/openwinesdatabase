@@ -1,0 +1,58 @@
+@mixin circleShadow($vertical) {
+  box-shadow:0 0 $vertical rgba(0,0,0,.14),0 $vertical $vertical*2 rgba(0,0,0,.28)
+}
+
+.FAB {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  width: 56px;
+
+  &__action-button,
+  &__mini-action-button{
+    cursor: pointer;
+    position: absolute;
+  }
+
+  &__action-button {
+    bottom: 0;
+    right: 0;
+
+    &:hover {
+      .action-button__icon {
+        @include circleShadow(8px);
+      }
+    }
+  }
+}
+
+.action-button {
+  &__icon{
+    @include circleShadow(4px);
+    background-color: #a03535;
+    border-radius: 50%;
+    color: #fff;
+    padding: 16px;
+  }
+
+  &__text {
+
+    &--hide {
+      display: none;
+    }
+
+    &--show {
+      background-color: #212121;
+      border-radius: 3px;
+      color: #fff;
+      right: 75px;
+      font-size: 14px;
+      font-family: "Helvetica Neue";
+      opacity: .8;
+      padding: 5px 9px;
+      position: absolute;
+      top: 2px;
+      white-space: nowrap;
+    }
+  }
+}
