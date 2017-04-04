@@ -6,6 +6,7 @@ import { SearchWines } from './browse/SearchWines';
 import { BrowseCountries } from './browse//BrowseCountries';
 import { BrowseRegions } from './browse//BrowseRegions';
 import { BrowseWines } from './browse//BrowseWines';
+import { WineForm } from './cud/WineForm';
 
 const App = React.createClass({
     render() {
@@ -33,6 +34,8 @@ export class RoutedApp extends Component {
                     <Route path="browse/countries" component={BrowseCountries} />
                     <Route path="browse/regions" component={BrowseRegions} />
                     <Route path="browse/wines" component={BrowseWines} />
+                    <Route path="wine-form/:id" component={WineForm} />
+                    <Route path="wine-form" component={WineForm} />
                 </Route>
             </Router>
         )

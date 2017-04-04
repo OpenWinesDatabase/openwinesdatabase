@@ -10,6 +10,9 @@ GET         /api/regions              controllers.SearchController.regions
 GET         /api/wines/_search        controllers.SearchController.search
 GET         /api/wines                controllers.SearchController.wines
 GET         /api/wines/:id            controllers.SearchController.wine(id: String)
+POST        /api/wines/               controllers.EditController.createWine
+PUT         /api/wines/:id            controllers.EditController.updateWine(id: String)
+DELETE      /api/wines/:id            controllers.EditController.deleteWine(id: String)
 
 # Map static resources from the /public folder to the /assets URL path
 GET         /assets/*file             controllers.Assets.versioned(path="/public", file: Asset)

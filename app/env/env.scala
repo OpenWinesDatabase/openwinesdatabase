@@ -11,6 +11,8 @@ object Env extends GoodOldPlayframework {
   def notDev = !gopf.play.api.Play.isProd
   def hash   = s"${System.currentTimeMillis()}"
   def env    = Configuration.getString("app.env").getOrElse("prod")
+  def visionApiEndpoint = Configuration.getString("vision.microsoft.api.endpoint").get
+  def visionApiKey = Configuration.getString("vision.microsoft.api.key").get
   def esServiceURL = Configuration.getString("elasticsearch.service.url").get
   def esServiceLogin = Configuration.getString("elasticsearch.service.login").get
   def esServicePassword = Configuration.getString("elasticsearch.service.password").get
@@ -21,5 +23,4 @@ object Env extends GoodOldPlayframework {
     Configuration.getString("app.auth0.callbackUrl").get,
     Configuration.getString("app.auth0.domain").get
   )
-
 }
