@@ -1,10 +1,16 @@
 package env
 
-object Env extends gopf.play.GoodOldPlayframework {
+import gopf.play.GoodOldPlayframework
 
-  lazy val isDev = gopf.play.api.Play.isDev
-  lazy val isProd = gopf.play.api.Play.isProd
-  lazy val notDev = !gopf.play.api.Play.isProd
-  lazy val hash = s"${System.currentTimeMillis()}"	
-  lazy val env = Configuration.getString("app.env").getOrElse("prod")
+object Env extends GoodOldPlayframework {
+
+  def isDev  = gopf.play.api.Play.isDev
+  def isProd = gopf.play.api.Play.isProd
+  def notDev = !gopf.play.api.Play.isProd
+  def hash   = s"${System.currentTimeMillis()}"
+  def env    = Configuration.getString("app.env").getOrElse("prod")
+  def esServiceURL = Configuration.getString("elasticsearch.service.url").get
+  def esServiceLogin = Configuration.getString("elasticsearch.service.login").get
+  def esServicePassword = Configuration.getString("elasticsearch.service.password").get
+
 }

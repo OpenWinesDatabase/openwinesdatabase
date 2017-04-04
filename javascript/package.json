@@ -1,16 +1,17 @@
 {
-  "name": "OpenWinesDatabase",
+  "name": "OpenWinesDatabase-ui",
   "version": "1.0.0",
-  "description": "UI for my project",
+  "description": "UI for the OpenWinesDatabase project",
   "main": "src/index.js",
-  "private": true,
+  "repository": "https://github.com/sebprunier/WIP-OpenWinesDatabase",
+  "author": "OpenWinesDatabase Team",
+  "license": "MIT",
   "scripts": {
     "bundle": "NODE_ENV=production webpack --colors --progress",
     "build": "rm -f ../public/javascripts/bundle/* && npm run bundle",
     "start": "NODE_ENV=dev webpack-dev-server -d --colors --inline --port 3000"
   },
   "dependencies": {
-    "bootstrap": "3.3.7",
     "es-symbol": "1.1.2",
     "es6-shim": "0.35.2",
     "faker": "^4.1.0",
@@ -30,6 +31,7 @@
     "redux-thunk": "2.1.0",
     "showdown": "1.6.0",
     "uuid": "3.0.1",
+    "webrtc-adapter": "^3.2.0",
     "whatwg-fetch": "2.0.1"
   },
   "devDependencies": {
