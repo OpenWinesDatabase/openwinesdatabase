@@ -1,0 +1,35 @@
+@(title: String, moreScripts: Html = play.twirl.api.Html(""), moreStyles: Html = play.twirl.api.Html(""))(content: Html)
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>@title</title>
+        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
+        <link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/bootstrap.min.css")">
+        <link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/bootstrap-theme.min.css")">
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/favicon.png")">
+        @moreStyles 
+    </head>
+    <body>
+        <div class="container">
+            <div class="header clearfix">
+                <nav>
+                    <ul class="nav nav-pills pull-right">
+                        <li role="presentation"><a href="@routes.HomeController.index()">Home</a></li>
+                    </ul>
+                </nav>
+                <h3 class="text-muted">OpenWinesDatabase</h3>
+            </div>
+            @content
+            <footer class="footer">
+                <p>© 2017 OpenWinesDatabase by the Team</p>
+            </footer>
+        </div>
+        @if(env.Env.isDev) {
+            <script src="http://localhost:3000/assets/javascripts/bundle/bundle.js" type="text/javascript"></script>
+        } else {
+            <script type="text/javascript" src="@routes.Assets.versioned(s"javascripts/bundle/bundle.js?v=${env.Env.hash}")"></script>
+        }
+        @moreScripts
+    </body>
+</html>
