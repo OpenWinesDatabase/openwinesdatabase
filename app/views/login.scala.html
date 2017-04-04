@@ -1,0 +1,51 @@
+
+@customStyle = {
+    <style>
+        #a0-lock .a0-panel {
+            width: 510px !important;
+        }
+        #a0-lock .a0-icon-badge {
+            display: none !important;
+        }
+        #a0-lock.a0-theme-default .a0-panel button.a0-primary {
+            background-color: #465059 !important;
+        }
+    </style>
+}
+
+@authScript = {
+    <script type="text/javascript" src="//use.typekit.net/iws6ohy.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+    <script src="https://cdn.auth0.com/js/lock-9.0.min.js"></script>
+    <script>
+            var AUTH0_CLIENT_ID = '@env.Env.auth0Config.clientId';
+            var AUTH0_DOMAIN = '@env.Env.auth0Config.domain';
+            var AUTH0_CALLBACK_URL = '@env.Env.auth0Config.callbackURL';
+    </script>
+    <script>
+            $(document).ready(function() {
+                var lock = new Auth0Lock(AUTH0_CLIENT_ID, AUTH0_DOMAIN);
+                lock.show({
+                    callbackURL: AUTH0_CALLBACK_URL,
+                    width: 510,
+                    dict: {
+                        signin: {
+                            title: "Connection to OpenWinesDatabase"
+                        },
+                        signup: {
+                            title: "Sign up to OpenWinesDatabase"
+                        }
+                    }
+                });
+            });
+    </script>
+}
+
+@main("Login", moreScripts = authScript, moreStyles = customStyle) {
+    <div class="container">
+        <div class="login-page clearfix">
+            <div class="login-box auth0-box before">
+            </div>
+        </div>
+    </div>
+}

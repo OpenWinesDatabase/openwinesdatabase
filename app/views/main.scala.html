@@ -1,7 +1,7 @@
 @import play.api.libs.json.JsValue
 
 @import play.api.libs.json.JsObject
-@(title: String, moreScripts: Html = play.twirl.api.Html(""), moreStyles: Html = play.twirl.api.Html(""))(content: Html)
+@(title: String, user: Option[JsValue] = None, moreScripts: Html = play.twirl.api.Html(""), moreStyles: Html = play.twirl.api.Html(""))(content: Html)
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +16,6 @@
         <link href="https://fonts.googleapis.com/css?family=Hammersmith+One" rel="stylesheet">
         @moreStyles
 
-
         <script>
           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
           (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -27,6 +26,11 @@
           ga('send', 'pageview');
         </script>
 
+        <script>
+            @if(user.isDefined) {
+                window.__user =@Html(play.api.libs.json.Json.stringify(user.get))
+            }
+        </script>
     </head>
     <body>
         <header>
@@ -44,7 +48,13 @@
 
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right">
-
+                            @if(user.isDefined) {
+                                <li class="pull-right"><a style="font-size: 22px" title="logout" href="@routes.Auth0Controller.logout"><i class="glyphicon glyphicon-off"></i></a></li>
+                                <img class="wino" src="/assets/images/icon_144_white.png" style="width: 30px; border-radius: 50%; margin-bottom: 5px" />
+                                <img src="@(user.map(u => (u \ "picture").as[String]).getOrElse("#")))" style="width: 40px; border-radius: 50%; margin-top: 5px" />
+                            } else {
+                                <li><a href="@routes.Auth0Controller.login(None)">Login</a></li>
+                            }
                         </ul>
                     </div>
                 </div>

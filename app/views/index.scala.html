@@ -1,6 +1,6 @@
 @import play.api.libs.json.JsValue
 
-@()
+@(user: Option[JsValue])
 
 @moreScripts = {
     <script>
@@ -8,6 +8,6 @@
     </script>
 }
 
-@main("OpenWineDatabase", moreScripts = moreScripts) {
+@main("OpenWineDatabase", user = user, moreScripts = moreScripts) {
     <div id="app"></div>
 }
