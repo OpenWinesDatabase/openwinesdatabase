@@ -1,0 +1,29 @@
+# France
+COUNTRY=fr START_PAGE=1 END_PAGE=500 node fetch_all.js
+COUNTRY=fr START_PAGE=500 END_PAGE=1000 node fetch_all.js
+COUNTRY=fr START_PAGE=1000 END_PAGE=1500 node fetch_all.js
+COUNTRY=fr START_PAGE=1500 END_PAGE=2000 node fetch_all.js
+COUNTRY=fr START_PAGE=2000 END_PAGE=2500 node fetch_all.js
+COUNTRY=fr START_PAGE=2500 END_PAGE=3000 node fetch_all.js
+COUNTRY=fr START_PAGE=3000 END_PAGE=3500 node fetch_all.js
+COUNTRY=fr START_PAGE=3500 END_PAGE=4000 node fetch_all.js
+COUNTRY=fr START_PAGE=4000 END_PAGE=4500 node fetch_all.js
+COUNTRY=fr START_PAGE=4500 END_PAGE=4629 node fetch_all.js
+
+# United States
+COUNTRY=us START_PAGE=1 END_PAGE=500 node fetch_all.js
+COUNTRY=us START_PAGE=500 END_PAGE=1000 node fetch_all.js
+COUNTRY=us START_PAGE=1000 END_PAGE=1500 node fetch_all.js
+COUNTRY=us START_PAGE=1500 END_PAGE=2000 node fetch_all.js
+COUNTRY=us START_PAGE=2000 END_PAGE=2248 node fetch_all.js
+
+# Other countries
+COUNTRY=za END_PAGE=615 node fetch_all.js
+COUNTRY=au END_PAGE=693 node fetch_all.js
+COUNTRY=ar END_PAGE=1049 node fetch_all.js
+COUNTRY=pt END_PAGE=908 node fetch_all.js
+COUNTRY=es END_PAGE=1992 node fetch_all.js
+COUNTRY=it END_PAGE=4353 node fetch_all.js
+COUNTRY=ca END_PAGE=105 node fetch_all.js
+COUNTRY=cl END_PAGE=1065 node fetch_all.js
+COUNTRY=nz END_PAGE=255 node fetch_all.js
