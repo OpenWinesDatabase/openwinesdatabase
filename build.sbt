@@ -12,7 +12,7 @@ libraryDependencies ++= Seq(
   cache,
   filters,
   "com.github.etaty" %% "rediscala" % "1.8.0",
-  "org.reactivecouchbase" %% "good-old-play-framework" % "1.0.2",
+  "org.reactivecouchbase" %% "good-old-play-framework" % "1.0.3",
   "org.scalatestplus.play" %% "scalatestplus-play" % "1.5.1" % Test
 )
 
